@@ -1,0 +1,19 @@
+-variabel let: permite utilizar en el for, para iterar sin cambios
+-fuciones: 
+    *anónimas:
+    aquellas que no tiene nombre
+-callbacks: 
+    -funcion que se llama  sí misma
+    -función que recibe como parametro una función
+-let: solamente lo puedes asignar una vez
+
+*********************FUNDAMENTOS DE NODE****************************+
+-servicios rest:
+-porque es rápido
+    *Bloking: debe esperar que se ejecute el código de js, y luego de este
+    *non bloking: no necesita espera a que termine el código de javascript, lo puede hacer intermedio
+
+*callbacks
+    -tiene un menor peso de ejecución, se ejecutan, despues de las funciones normales
+*funciones flecha
+

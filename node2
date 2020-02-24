@@ -1,0 +1,29 @@
+*nodemom : te auto-ejecuta el archivo de node
+*instalacion npm install -g nodemon: el g significa que el global en todo el sistema
+
+*let:
+    -no puede reescribirla
+    -pero dura poco tiempo si esta en un bucle for
+*templates: 
+    -concatenar con comillas invertidad
+    -${variable}
+*deestructuracion
+    -sirve
+*mardown
+    
+*setTimeout:
+    -asignar tiempo a una funcion
+
+**********************NODE 3******************
+17/02/2020
+-primero se define lo que no queremos
+
+****************NODE 4***************
+PROMESAS:
+-permiten hace un trabajo sincronico
+-el catch sirve para capturar todos los errores
+
+
+PALABRAS RESERVADADS
+-asinc-->devuelve una función flecha
+-await-->solo puede definirse con una función asincrona,
