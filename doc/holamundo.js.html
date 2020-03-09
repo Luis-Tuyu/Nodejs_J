@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>holamundo.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="doc-style.css" />
+  <script src="doc-filelist.js"></script>
+  <script>
+    var relativeDir = "";
+    var thisFile = "holamundo.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>holamundo.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"hola mundo desde node"</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mostrar</span>(<span class="hljs-params">callback</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"estas entradno a un callback"</span>)
+    callback();
+}
+
+
+mostrar(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"definiendo un collback"</span>);
+});
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"final"</span>);
+
+<span class="hljs-keyword">var</span> name = <span class="hljs-string">'luis'</span>;
+<span class="hljs-keyword">let</span> name_2 = <span class="hljs-string">'3'</span>;
+
+<span class="hljs-keyword">var</span> i = <span class="hljs-string">'hola'</span>;
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) {
+    i += <span class="hljs-number">1</span>;
+}
+<span class="hljs-built_in">console</span>.log(i);
+
+<span class="hljs-keyword">let</span> n = <span class="hljs-string">'luis'</span>
+<span class="hljs-keyword">let</span> n2 = <span class="hljs-string">'tuyu'</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${n}</span>, <span class="hljs-subst">${n2}</span>`</span>)
+
+<span class="hljs-keyword">let</span> persona = {
+    <span class="hljs-attr">nombre</span>: <span class="hljs-string">'luis'</span>,
+    <span class="hljs-attr">apellido</span>: <span class="hljs-string">'tuyu'</span>
+}
+<span class="hljs-keyword">let</span> { nombre, apellido } = persona
+<span class="hljs-built_in">console</span>.log(nombre, apellido)
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>funciones flecha</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-keyword">let</span> functionF = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
+        <span class="hljs-keyword">return</span> a + b
+    }
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>solo sirve para devolver un solo dato</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-keyword">let</span> functionFF = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a + b
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>practicando el callback</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">emprender</span>(<span class="hljs-params">callback</span>) </span>{
+    <span class="hljs-keyword">let</span> emprendedor = {
+
+        <span class="hljs-attr">nombre</span>: <span class="hljs-string">'luis'</span>,
+        <span class="hljs-attr">idea</span>: <span class="hljs-string">'camiones'</span>,
+        <span class="hljs-attr">utilidadades</span>: <span class="hljs-number">4000</span>
+    }
+
+    callback(emprendedor);
+}
+
+emprender(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-keyword">if</span> (response.utilidadades &gt; <span class="hljs-number">300</span>) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"tus utilidades son mayores"</span>);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Felicidades <span class="hljs-subst">${response.nombre}</span>, tus utilidades son mayores`</span>);
+    }
+});
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>funciones flecha, lo que vimos en la clase pasada</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUsuarios</span>(<span class="hljs-params">id, callbacks</span>) </span>{
+    usuario = {
+        id,
+        <span class="hljs-attr">nombre</span>: <span class="hljs-string">'Luis'</span>,
+        <span class="hljs-attr">apellido</span>: <span class="hljs-string">'Medina'</span>
+    }
+    callbacks(usuario)
+}
+
+getUsuarios(<span class="hljs-number">10</span>, (response) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`El id es:  <span class="hljs-subst">${ response.id }</span> El nombre es: <span class="hljs-subst">${response.nombre}</span>`</span>);
+})
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>jugando con las funciones dejs</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Iniciando la practica de node.js"</span>);
+<span class="hljs-keyword">let</span> uno;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">accion</span>(<span class="hljs-params"></span>) </span>{
+    uno = <span class="hljs-string">'dato'</span>;
+    <span class="hljs-built_in">console</span>.log(uno)
+}
+
+accion();
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"imprimiendo variable"</span>, uno);
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> a = <span class="hljs-number">0</span>; a &lt; <span class="hljs-number">10</span>; a++) {
+    <span class="hljs-built_in">console</span>.log(a);
+}
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"variale a: "</span>, a);
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

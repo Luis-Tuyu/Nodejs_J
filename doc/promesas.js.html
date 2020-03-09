@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>promesas.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="doc-style.css" />
+  <script src="doc-filelist.js"></script>
+  <script>
+    var relativeDir = "";
+    var thisFile = "promesas.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>promesas.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-keyword">let</span> usuarios = [{
+        <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">nombre</span>: <span class="hljs-string">'Juan'</span>,
+        <span class="hljs-attr">apellido</span>: <span class="hljs-string">'López'</span>,
+        <span class="hljs-attr">salario</span>: <span class="hljs-number">3000</span>
+    },
+    {
+        <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">nombre</span>: <span class="hljs-string">'Luis'</span>,
+        <span class="hljs-attr">apellido</span>: <span class="hljs-string">'Chi'</span>,
+        <span class="hljs-attr">salario</span>: <span class="hljs-number">7000</span>
+    },
+    {
+        <span class="hljs-attr">id</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-attr">nombre</span>: <span class="hljs-string">'Sergio'</span>,
+        <span class="hljs-attr">apellido</span>: <span class="hljs-string">'Medina'</span>,
+        <span class="hljs-attr">salario</span>: <span class="hljs-number">8000</span>
+    },
+    {
+        <span class="hljs-attr">id</span>: <span class="hljs-number">4</span>,
+        <span class="hljs-attr">nombre</span>: <span class="hljs-string">'Sergio'</span>,
+        <span class="hljs-attr">apellido</span>: <span class="hljs-string">'Medina'</span>
+    }
+]
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>let promesa = (mensaje) =&gt; {
+return new Promise ( (resolve, reject) =&gt; {
+if(mensaje === 'Hello'){
+resolve(<code>Mensaje ${ mensaje }</code>)
+}else{
+reject('No hay mensaje')
+}
+})
+}</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+<span class="hljs-keyword">let</span> getUsuarios = <span class="hljs-function">(<span class="hljs-params">id</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+
+        <span class="hljs-keyword">let</span> user = usuarios.find(<span class="hljs-function">(<span class="hljs-params">usuario</span>) =&gt;</span> usuario.id === id);
+
+        <span class="hljs-keyword">if</span> (!user) {
+            reject(<span class="hljs-string">`No se encontro un usuario con este ID <span class="hljs-subst">${ id }</span>`</span>)
+        } <span class="hljs-keyword">else</span> {
+            resolve(user)
+        }
+    })
+}
+<span class="hljs-keyword">let</span> getSalario = <span class="hljs-function">(<span class="hljs-params">user</span>) =&gt;</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+
+            <span class="hljs-keyword">if</span> (!user.salario) {
+                reject(<span class="hljs-string">`No existe un salario para el usuario <span class="hljs-subst">${ user.nombre }</span>`</span>)
+            } <span class="hljs-keyword">else</span> {
+                resolve({ <span class="hljs-attr">nombre</span>: user.nombre, <span class="hljs-attr">salario</span>: user.salario })
+            }
+        })
+    }
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>promesa('Hell').then((response) =&gt; {
+console.log(response)
+}, (err) =&gt; console.log(err))</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">getUsuarios(<span class="hljs-number">3</span>).then(<span class="hljs-function">(<span class="hljs-params">resp</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> getSalario(resp)
+}).then((<span class="hljs-function"><span class="hljs-params">resp</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(resp)
+})).catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(err))
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

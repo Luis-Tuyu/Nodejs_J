@@ -7,7 +7,7 @@ function mostrar(callback) {
 
 
 mostrar(function() {
-    console.log("definiendo un collback");
+    console.log("definiendo un callback");
 });
 console.log("final");
 
